@@ -4,6 +4,8 @@ import axios from 'axios';
 
 import {store} from './store.js';
 
+import AppNav from './components/AppNav.vue';
+
 export default {
   data() {
     return {
@@ -13,7 +15,7 @@ export default {
   },
 
   components: {
-
+    AppNav,
   },
 
   created() {
@@ -28,17 +30,27 @@ export default {
     });
 
   },
-
+  // ${searchText}
   methods: {
-
-
-  },
+    searchFilm(searchText) {
+      this.store.films = [];
+      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=592c7f331c0a2f4ae38ae95ab2c85d31&query=avatar`)
+      .then(res => {
+          console.log(res.data);
+          this.store.films = res.data;
+          console.log(this.store.films);
+      })
+      .catch(error => {
+          console.error('Errore durante la ricerca delle carte:', error);
+      });
+    },
+  }
 }
 
 </script>
 
 <template>
-
+  <AppNav @search="searchFilm"></AppNav>
 </template>
 
 <style scoped>
