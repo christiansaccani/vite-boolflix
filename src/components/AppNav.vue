@@ -38,6 +38,8 @@ export default {
 
 <style lang="scss">
 
+@use '../style/variables' as *;
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -49,7 +51,7 @@ nav {
     #logo {
         font-size: x-large;
         font-weight: bold;
-        color: red;
+        color: $primaryColor;
     }
 
     #search-bar {
