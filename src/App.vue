@@ -22,7 +22,7 @@ export default {
 
   created() {
     axios
-    .get('https://api.themoviedb.org/3/search/movie?api_key=592c7f331c0a2f4ae38ae95ab2c85d31&query=maze+runner')
+    .get('https://api.themoviedb.org/3/search/multi?api_key=592c7f331c0a2f4ae38ae95ab2c85d31&query=maze+runner')
     .then(res => {
       const films = res.data.results;
       films.forEach(film => {
@@ -36,7 +36,7 @@ export default {
   methods: {
     searchFilm(searchText) {
       this.store.films = [];
-      axios.get(`https://api.themoviedb.org/3/search/movie?api_key=592c7f331c0a2f4ae38ae95ab2c85d31&query=${searchText}`)
+      axios.get(`https://api.themoviedb.org/3/search/multi?api_key=592c7f331c0a2f4ae38ae95ab2c85d31&query=${searchText}`)
       .then(res => {
         const films = res.data.results;
         films.forEach(film => {
