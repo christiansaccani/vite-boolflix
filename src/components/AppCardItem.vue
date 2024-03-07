@@ -60,10 +60,9 @@ export default {
 li {
 
     max-width: 18vw;
+    min-width: 300px;
 
     .prova {
-        display: flex;
-        justify-content: center;
 
         img {
         width: 18vw;
@@ -81,6 +80,7 @@ li {
         font-weight: 500;
 
         max-width: 16vw;
+        min-width: 260px;
 
         padding-bottom: .50em;
         border-bottom: 1px solid $primaryColor;

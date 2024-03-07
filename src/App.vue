@@ -66,6 +66,7 @@ export default {
 
 #container {
   padding: 1em;
+  margin-right: 1em;
 
   ul {
     display: flex;
