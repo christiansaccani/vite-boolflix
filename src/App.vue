@@ -69,11 +69,11 @@ export default {
 
   ul {
     display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    gap: 2em;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
 
     list-style: none;
+    margin-top: 200px;
   }
 }
 

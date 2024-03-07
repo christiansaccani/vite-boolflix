@@ -59,8 +59,7 @@ export default {
 
 li {
 
-    width: 20vw;
-    padding: .5em;
+    max-width: 18vw;
 
     .prova {
         display: flex;
@@ -68,13 +67,20 @@ li {
 
         img {
         width: 18vw;
+        min-width: 300px;
+        height: 450px;
+        object-fit: cover;
+
         margin-bottom: .5em;
+        overflow-x: auto;
         }
     }
     
     .card-title {
         font-size: large;
         font-weight: 500;
+
+        max-width: 16vw;
 
         padding-bottom: .50em;
         border-bottom: 1px solid $primaryColor;
