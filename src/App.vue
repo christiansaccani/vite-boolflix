@@ -1,6 +1,7 @@
 <script>
 
 import axios from 'axios';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 import {store} from './store.js';
 
