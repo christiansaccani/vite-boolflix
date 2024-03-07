@@ -12,9 +12,12 @@ export default {
 
 <template>
     <li v-if="film.media_type === 'movie'">
+        <div class="prova">
+        <img :src="'https://image.tmdb.org/t/p/w342' + (film.poster_path)">
+        </div>
+
         <p class="card-title">{{ film.title }}</p>
         <section>
-            
 
             <img 
             :src="'https://flagcdn.com/w20/' + (film.original_language === 'en' ? 'us'
@@ -25,7 +28,6 @@ export default {
             :alt="film.original_language"
             onerror="this.src='./public/world.png'"/>
 
-            <p class="card-media">movie</p>
             <p class="card-otitle">{{ film.original_title }}</p>
             <p class="card-vote">{{ (film.vote_average).toFixed(2) }}</p>
         </section>
@@ -45,7 +47,6 @@ export default {
             :alt="film.original_language"
             onerror="this.src='./public/world.png'"/>
 
-            <p class="card-media">series</p>
             <p class="card-otitle">{{ film.original_name }}</p>
             <p class="card-vote">{{ (film.vote_average).toFixed(2) }}</p>
         </section>
@@ -57,9 +58,20 @@ export default {
 @use '../style/variables' as *;
 
 li {
+
     width: 20vw;
     padding: .5em;
 
+    .prova {
+        display: flex;
+        justify-content: center;
+
+        img {
+        width: 18vw;
+        margin-bottom: .5em;
+        }
+    }
+    
     .card-title {
         font-size: large;
         font-weight: 500;
