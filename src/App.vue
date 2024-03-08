@@ -73,6 +73,8 @@ export default {
     justify-content: flex-start;
     flex-flow: row nowrap;
 
+    gap: 5px;
+
     list-style: none;
     margin-top: 200px;
   }

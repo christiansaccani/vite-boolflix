@@ -13,7 +13,9 @@ export default {
 <template>
     <li v-if="film.media_type === 'movie'">
         <div class="prova">
-        <img :src="'https://image.tmdb.org/t/p/w342' + (film.poster_path)">
+        <img :src="'https://image.tmdb.org/t/p/w342' + (film.poster_path)"
+        onerror="this.src='./public/white.jpg'"/>
+
         </div>
 
         <p class="card-title">{{ film.title }}</p>
@@ -72,6 +74,8 @@ li {
 
         margin-bottom: .5em;
         overflow-x: auto;
+
+        border: 1px solid #0c0c0c;
         }
     }
     
