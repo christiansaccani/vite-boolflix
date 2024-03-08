@@ -12,7 +12,7 @@ export default {
 
 <template>
     <li v-if="film.media_type === 'movie'">
-        <div class="prova">
+        <div class="cover">
         <img :src="'https://image.tmdb.org/t/p/w342' + (film.poster_path)"
         onerror="this.src='./public/white.jpg'"/>
 
@@ -31,11 +31,16 @@ export default {
             onerror="this.src='./public/world.png'"/>
 
             <p class="card-otitle">{{ film.original_title }}</p>
-            <p class="card-vote">{{ (film.vote_average).toFixed(2) }}</p>
+            <i v-for="index in 5" :class="['fas', 'fa-star', {'filled': index <= Math.ceil(film.vote_average / 2)}, {'empty': index > Math.ceil(film.vote_average / 2)}]" :key="index"></i>
         </section>
     </li>
 
     <li v-else-if="film.media_type === 'tv'">
+        <div class="cover">
+        <img :src="'https://image.tmdb.org/t/p/w342' + (film.poster_path)"
+        onerror="this.src='./public/white.jpg'"/>
+
+        </div>
         <p class="card-title">{{ film.name }}</p>
         <section>
             
@@ -50,7 +55,7 @@ export default {
             onerror="this.src='./public/world.png'"/>
 
             <p class="card-otitle">{{ film.original_name }}</p>
-            <p class="card-vote">{{ (film.vote_average).toFixed(2) }}</p>
+            <i v-for="index in 5" :class="['fas', 'fa-star', {'filled': index <= Math.ceil(film.vote_average / 2)}, {'empty': index > Math.ceil(film.vote_average / 2)}]" :key="index"></i>
         </section>
     </li>
 </template>
@@ -64,15 +69,18 @@ li {
     max-width: 18vw;
     min-width: 300px;
 
-    .prova {
+    margin-right: 5px;
+
+    .cover {
 
         img {
-        width: 18vw;
+        width: 100%;
         min-width: 300px;
         height: 450px;
         object-fit: cover;
 
         margin-bottom: .5em;
+        margin-right: 10px;
         overflow-x: auto;
 
         border: 1px solid #0c0c0c;
@@ -90,7 +98,7 @@ li {
         border-bottom: 1px solid $primaryColor;
 
         white-space: nowrap;
-        overflow: hidden; // Nasconde il testo che supera le dimensioni disponibili
+        overflow: hidden;
         text-overflow: ellipsis;
     }
 
@@ -115,6 +123,14 @@ li {
 
         .card-vote {
             color: #00c05d;
+        }
+
+        .fa-star.filled {
+            color: $primaryColor;
+        }
+
+        .fa-star.empty {
+            color: rgba(255, 255, 255, 0.452);
         }
     }
 }
